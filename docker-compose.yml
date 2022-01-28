@@ -1,0 +1,14 @@
+version: '3.5'
+
+services:
+  app:
+    build:
+      context: ./docker
+    volumes:
+      - ./src:/var/www/html/
+    ports:
+      - '80:80'
+    working_dir: /var/www/html/
+    command: >
+      bash -c "chown -R www-data /var/www/html/storage/*
+      && apache2-foreground"
