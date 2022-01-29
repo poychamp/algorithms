@@ -52,4 +52,28 @@ class SortService
 
         return $result;
     }
+
+    /**
+     * @param array $data
+     * @return array
+     */
+    public function bubbleSort(array $data)
+    {
+        $lastIndex = count($data) - 1;
+
+        for ($i = 0; $i <= $lastIndex; $i++) {
+            for ($j = 0; $j < $lastIndex - $i; $j++) {
+                $k = $j + 1;
+
+                if ($data[$k] < $data[$j]) {
+                    $valueK = $data[$k];
+                    $valueJ = $data[$j];
+                    $data[$k] = $valueJ;
+                    $data[$j] = $valueK;
+                }
+            }
+        }
+
+        return $data;
+    }
 }
